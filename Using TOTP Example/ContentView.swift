@@ -8,37 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.openURL) var openURL
+    @State var email: String = ""
+    @State var password: String = ""
+
+    private var isInvalid: Bool {
+        email.isEmpty || password.isEmpty
+    }
 
     var body: some View {
-        Button("Connect OTP", action: {
-            Task {
-                guard let url = await API.getOTPLink() else { return }
+        NavigationView {
+            VStack {
+                TextField("Email", text: $email)
+                    .textContentType(.username)
+                    .keyboardType(.emailAddress)
+                    .disableAutocorrection(true)
+                    .padding()
 
-                openURL(url)
+                SecureField("New Password", text: $password)
+                    .textContentType(.newPassword)
+                    .padding()
+
+                NavigationLink(destination: SetupOTPView()) {
+                    Text("Sign in")
+                }
+                .padding()
+                .disabled(isInvalid)
             }
-        })
-            .padding()
-    }
-}
-
-enum API {
-    struct OTPLink: Codable {
-        let link: String
-    }
-
-    static let host = URL(string: "http://localhost:4567")!
-
-    static func getOTPLink() async -> URL? {
-        let url = Self.host.appendingPathComponent("/setup")
-
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let otpLink = try JSONDecoder().decode(OTPLink.self, from: data)
-            return URL(string: otpLink.link)
-        } catch {
-            print(error.localizedDescription)
-            return nil
         }
     }
 }

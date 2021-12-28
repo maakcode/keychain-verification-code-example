@@ -12,6 +12,8 @@
 		7E40B458277ACEFF0010E214 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E40B457277ACEFF0010E214 /* ContentView.swift */; };
 		7E40B45A277ACEFF0010E214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E40B459277ACEFF0010E214 /* Assets.xcassets */; };
 		7E40B45D277ACEFF0010E214 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E40B45C277ACEFF0010E214 /* Preview Assets.xcassets */; };
+		7E40B466277B51900010E214 /* SetupOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E40B465277B51900010E214 /* SetupOTPView.swift */; };
+		7E40B468277B56CC0010E214 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E40B467277B56CC0010E214 /* AuthenticationServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,9 @@
 		7E40B459277ACEFF0010E214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E40B45C277ACEFF0010E214 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7E40B463277B209D0010E214 /* Using-TOTP-Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Using-TOTP-Example-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7E40B464277B3A4C0010E214 /* Using TOTP Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Using TOTP Example.entitlements"; sourceTree = "<group>"; };
+		7E40B465277B51900010E214 /* SetupOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupOTPView.swift; sourceTree = "<group>"; };
+		7E40B467277B56CC0010E214 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		D0016953FDD91DB26ED54268 /* Pods_Using_TOTP_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Using_TOTP_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E40B468277B56CC0010E214 /* AuthenticationServices.framework in Frameworks */,
 				59047992BDB6B344B3129E6A /* Pods_Using_TOTP_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,9 +65,11 @@
 		7E40B454277ACEFF0010E214 /* Using TOTP Example */ = {
 			isa = PBXGroup;
 			children = (
+				7E40B464277B3A4C0010E214 /* Using TOTP Example.entitlements */,
 				7E40B463277B209D0010E214 /* Using-TOTP-Example-Info.plist */,
 				7E40B455277ACEFF0010E214 /* Using_TOTP_ExampleApp.swift */,
 				7E40B457277ACEFF0010E214 /* ContentView.swift */,
+				7E40B465277B51900010E214 /* SetupOTPView.swift */,
 				7E40B459277ACEFF0010E214 /* Assets.xcassets */,
 				7E40B45B277ACEFF0010E214 /* Preview Content */,
 			);
@@ -79,6 +87,7 @@
 		8C2AB2E51CE9137C8102A620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E40B467277B56CC0010E214 /* AuthenticationServices.framework */,
 				D0016953FDD91DB26ED54268 /* Pods_Using_TOTP_Example.framework */,
 			);
 			name = Frameworks;
@@ -190,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E40B458277ACEFF0010E214 /* ContentView.swift in Sources */,
+				7E40B466277B51900010E214 /* SetupOTPView.swift in Sources */,
 				7E40B456277ACEFF0010E214 /* Using_TOTP_ExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +329,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Using TOTP Example/Using TOTP Example.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Using TOTP Example/Preview Content\"";
@@ -350,6 +361,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Using TOTP Example/Using TOTP Example.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Using TOTP Example/Preview Content\"";
