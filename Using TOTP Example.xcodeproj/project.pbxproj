@@ -110,6 +110,7 @@
 			buildConfigurationList = 7E40B460277ACEFF0010E214 /* Build configuration list for PBXNativeTarget "Using TOTP Example" */;
 			buildPhases = (
 				D72E57831D29EA44F5758106 /* [CP] Check Pods Manifest.lock */,
+				7E2A97D7277C40B90039AFB5 /* ShellScript */,
 				7E40B44E277ACEFF0010E214 /* Sources */,
 				7E40B44F277ACEFF0010E214 /* Frameworks */,
 				7E40B450277ACEFF0010E214 /* Resources */,
@@ -169,6 +170,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7E2A97D7277C40B90039AFB5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Get ngrok host name in shell by fvclaus\n# https://gist.github.com/rjz/af40158c529d7c407420fc0de490758b#gistcomment-2372805\nHOST=$(curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url\":\"https:..([^\"]*).*/\\1/p')\n\n/usr/libexec/PlistBuddy -c \"Set :HOST ${HOST}\" \"${PROJECT_DIR}/Using-TOTP-Example-Info.plist\" \n\n/usr/libexec/PlistBuddy -c \"Set :com.apple.developer.associated-domains:0 webcredentials:${HOST}\" \"${PROJECT_DIR}/Using TOTP Example/Using TOTP Example.entitlements\" \n";
+		};
 		D72E57831D29EA44F5758106 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

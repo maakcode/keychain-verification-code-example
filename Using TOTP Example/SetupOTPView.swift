@@ -10,29 +10,22 @@ import SwiftUI
 struct SetupOTPView: View {
     @Environment(\.openURL) var openURL
     @State var code: String = ""
-    @State var isTextFieldHidden: Bool = true
 
     var body: some View {
-        if isTextFieldHidden {
+        VStack {
             Button("Connect OTP", action: {
                 Task {
                     guard let url = await API.getOTPLink() else { return }
 
                     openURL(url)
-                    isTextFieldHidden = false
                 }
             })
                 .padding()
-        } else {
-            VStack {
-                TextField("OTP Code", text: $code)
-                    .textContentType(.oneTimeCode)
-                    .padding()
-                Button("Cancel", action: {
-                    isTextFieldHidden = true
-                })
-                    .padding()
-            }
+
+            TextField("OTP Code", text: $code)
+                .textContentType(.oneTimeCode)
+                .keyboardType(.decimalPad)
+                .padding()
         }
     }
 }
@@ -44,7 +37,13 @@ enum API {
         let link: String
     }
 
-    static let host = URL(string: "http://localhost:4567")!
+    static let host: URL = {
+        guard let host = Bundle.main.object(forInfoDictionaryKey: "HOST") as? String else {
+            fatalError("There is no HOST key in Info.plist")
+        }
+
+        return URL(string: "https://" + host)!
+    }()
 
     static func getOTPLink() async -> URL? {
         let url = Self.host.appendingPathComponent("/setup")

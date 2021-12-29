@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var email: String = ""
+    @State var email: String = "email@example.com" // Hardcoded ID. See api.rb line 9.
     @State var password: String = ""
 
     private var isInvalid: Bool {
