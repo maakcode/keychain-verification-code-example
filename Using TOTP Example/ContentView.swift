@@ -25,7 +25,7 @@ struct ContentView: View {
                     .padding()
 
                 SecureField("New Password", text: $password)
-                    .textContentType(.newPassword)
+                    .textContentType(.password)
                     .padding()
 
                 NavigationLink(destination: SetupOTPView()) {
