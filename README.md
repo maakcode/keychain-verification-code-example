@@ -1,6 +1,6 @@
 # Installation
 
-This example needs [ngrok](https://ngrok.com) and Ruby 3.0.3+.
+This example needs [ngrok](https://ngrok.com) and Ruby 3.1.3+.
 
 1. Setup project with Makefile.
 
