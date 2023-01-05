@@ -73,7 +73,10 @@ GEM
     nanaimo (0.3.0)
     nap (1.1.0)
     netrc (0.11.0)
+    nio4r (2.5.8)
     public_suffix (4.0.7)
+    puma (6.0.2)
+      nio4r (~> 2.0)
     rack (2.2.5)
     rack-protection (2.1.0)
       rack
@@ -101,10 +104,11 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
-  arm64-darwin-22
+  ruby
 
 DEPENDENCIES
   cocoapods (= 1.11.2)
+  puma (~> 6.0)
   rotp (~> 6.2.0)
   sinatra (~> 2.1.0)
 
